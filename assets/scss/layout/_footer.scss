@@ -1,0 +1,14 @@
+footer{
+  background-image: url("../../assets/images/footerBG_m.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;  
+  padding: 40px 0;
+}
+
+@include media-breakpoint-up(md) {
+  footer{
+  background-image: url("../../assets/images/footerBG.svg");
+    padding: 80px 0;
+  }
+}

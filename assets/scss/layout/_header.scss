@@ -1,0 +1,80 @@
+.navbar-nav{
+  --bs-navbar-color: $black;
+}
+.nav-link {
+  position: relative;
+  text-align: center;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    opacity: 0;
+    border: 1px solid #919191;
+    -webkit-box-reflect:below 20px;
+    transition: transform 0.3s, opacity 0.3s;
+    transform-origin: center; 
+    transition-timing-function: cubic-bezier(0.17, 0.67, 0.05, 1.29);
+  }
+  &:before {
+    top: 0;
+    left: 0;
+    border-width: 1px 0 0 1px;
+    transform: translate3d(10px, 10px, 0);
+  }
+  &:after {
+    top: 0;
+    right: 0;    
+    border-width: 1px 1px 0 0;
+    transform: translate3d(-10px, 10px, 0);
+  }
+  &:hover:before,
+  &:hover:after,
+  &.active:before,
+  &.active:after {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+/* Hamburger Animate */
+
+.navbar-toggler-icon {
+  width: 24px;
+  height: 17px;
+  background-image: none;
+  position: relative;
+  border-bottom: 1px solid #000;
+  transition: all 300ms linear;
+
+  &:after,
+  &:before{
+    display: block;
+    width: 24px;
+    position: absolute;
+    height: 1px;
+    background-color: #000;
+    top: 0;
+    right: 0;
+    content: "";
+    z-index: 2;
+    transition: all 300ms linear;
+  }
+  &:after{
+    top: 8px;
+    width: 24px;
+  }
+}
+.navbar-toggler[aria-expanded="true"]{
+  .navbar-toggler-icon{
+  border-color: transparent;
+    &:before{
+      transform: translateY(8px) rotate(-45deg);
+    }
+    &:after {
+      transform: rotate(45deg);
+      width: 24px;
+    }
+  }
+}
+
